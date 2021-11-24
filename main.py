@@ -1,5 +1,17 @@
 from tkinter import *
 import requests
+import pygame
+from pygame import mixer
+from pygame.locals import *
+
+
+def background_music():
+    
+    mixer.init()
+
+    # playing music
+    mixer.music.load("backg.wav")
+    mixer.music.play(-1)
 
 
 def get_quote():
@@ -14,13 +26,15 @@ def get_quote():
     # writing the quote on the GUI
     canvas.itemconfig(quote_text, text=quote)
 
+    background_music()
+
 # creating GUI
 
 window = Tk()
 window.title("Kanye Says...")
 
 
-window.config(padx=50, pady=50)
+window.config(padx=20, pady=20)
 
 canvas = Canvas(width=300, height=414)
 background_img = PhotoImage(file="background.png")
