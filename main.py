@@ -3,20 +3,29 @@ import requests
 
 
 def get_quote():
+    
+    '''Process a get request to get the quote '''
+    
     response = requests.get(url="https://api.kanye.rest")
     response.raise_for_status()
     data = response.json()
     quote = data["quote"]
+    
+    # writing the quote on the GUI
     canvas.itemconfig(quote_text, text=quote)
 
+# creating GUI
 
 window = Tk()
 window.title("Kanye Says...")
+
+
 window.config(padx=50, pady=50)
 
 canvas = Canvas(width=300, height=414)
 background_img = PhotoImage(file="background.png")
 canvas.create_image(150, 207, image=background_img)
+
 quote_text = canvas.create_text(150, 207, text="KANYE Quote", width=250, font=("Arial", 25, "bold"), fill="white")
 canvas.grid(row=0, column=0)
 
