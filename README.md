@@ -1,4 +1,4 @@
-# YE_App
+# Quotes_App
 Kanye West Quotes
 
 #100daysOfCode - Day33
